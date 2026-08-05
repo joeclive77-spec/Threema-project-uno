@@ -1,4 +1,5 @@
-// Minimal server - no external dependencies
+// Minimal HTTP server - secure shop
+// No external dependencies required
 const http = require('http');
 const port = process.env.PORT || 3000;
 
