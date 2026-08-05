@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: secure-shop
+    runtime: node
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DATABASE_URL
+        fromDatabase:
+          name: secure-shop-db
+          property: connectionString
+    healthCheck:
+      path: /health
+databases:
+  - name: secure-shop-db
+    databaseName: secure_shop
+    user: secure_shop_user
